@@ -1,0 +1,230 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homeet</title>
+    <link rel="stylesheet" href="{% static 'osennayashkolaapp/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'osennayashkolaapp/css/registration.css' %}">
+    <script src="{% static 'osennayashkolaapp/js/registration.js' %}"></script>
+</head>
+<body>
+    <header>
+        <img src="{% static 'osennayashkolaapp/icons/logo.svg' %}" alt="Main logo">
+        <button class="_btn_main" id="logout" onclick="alert('Вы вышли из аккаунта!')">Выйти из аккаунта</button>
+    </header>
+    <main>
+        <button class="_btn_main" id="back">На главную</button>
+        <section id="main-header">
+            <span id="title">Создание профиля</span>
+            <span class="divider">/</span>
+            <span class="subtitle" id="header-phase1">О себе</span>
+            <span class="subtitle _hidden" id="header-phase2">Образование</span>
+        </section>
+
+        <div id="progressbar">
+            <div id="progress" style="width: 5%;"></div>
+        </div>
+
+        <section class="registration-2columns">
+            <section class="registration-left-column" id="lc-phase1">
+                
+                <!--<form class="registration-inputs" id="registration-inputs-phase1" action="../registration-completion-phase1/" method="post" enctype="multipart/form-data">-->
+                <form class="registration-inputs" id="registration-inputs-phase1">
+                    {% csrf_token %}
+                    <div class="form-upload-avatar">
+                        <center>
+                            <p id="title" class="_text_weight700">Аватар профиля</p>
+                            <label id="{{ registration_phase1_form.avatar.id_for_label }}">
+                                {{ registration_phase1_form.avatar }}
+                                Загрузить
+                            </label> 
+                            <p id="description" class="_text_size14 _text_colorCCCCCC">Загрузите фотографию весом не более 10 мб</p>
+                        </center>
+                    </div>
+
+                    <div class="form-group google-like-input">
+                        {{ registration_phase1_form.name }}
+                        <label for="{{ registration_phase1_form.name.id_for_label }}">Имя и фамилия</label>
+                        <p id="id_name_error" class="form-error"></p>
+                    </div>
+
+                    <div class="form-group-radio">
+                        {% for radio in registration_phase1_form.sex %}
+                        <div class="radio-btn">
+                            {{ radio.tag }}
+                            <label for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    
+                    <div class="form-group google-like-input">
+                        {{ registration_phase1_form.dateofbirth }}
+                        <label for="{{ registration_phase1_form.dateofbirth.id_for_label }}">Дата рождения</label>
+                        <p id="id_dateofbirth_error" class="form-error"></p>
+                    </div>
+
+                    <div class="form-group google-like-input">
+                        {{ registration_phase1_form.tg }}
+                        <label for="{{ registration_phase1_form.tg.id_for_label }}">Телеграм</label>
+                        <p id="id_tg_error" class="form-error"></p>
+                    </div>
+
+                    <div class="form-group google-like-input">
+                        {{ registration_phase1_form.phone }}
+                        <label for="{{ registration_phase1_form.phone.id_for_label }}">Номер телефона</label>
+                        <p id="id_phone_error" class="form-error"></p>
+                    </div>
+                    
+                    <div class="form-group google-like-input">
+                        {{ registration_phase1_form.about }}
+                        <label for="{{ registration_phase1_form.about.id_for_label }}">О себе</label>
+                        <p id="id_about_error" class="form-error"></p>
+                    </div>
+                    <span class="_text_size12 _text_color9E9E9E">Например: Редко готовлю, но люблю ботать на кухне по ночам. Хочу завести собаку. Очень люблю читать, играть в хорроры и смотреть аниме. Открыт к общению и взаимопомощи :)</span>
+                </form>
+            </section>
+            <section class="registration-left-column _hidden" id="lc-phase2">
+                <form class="registration-inputs" id="registration-inputs-phase2">
+                    <div class="form-group-radio">
+                        <div class="radio-btn">
+                            <input id="student-or-graduate" type="radio" name="occupation" value="student-or-graduate" checked>
+                            <label for="student-or-graduate">Студент / выпускник</label>
+                        </div>
+                        <div class="radio-btn">
+                            <input id="employee" type="radio" name="occupation" value="employee">
+                            <label for="employee">Работник</label>
+                        </div>
+                    </div>
+                    <div id="form-course">
+                        <label id="course-header">Курс</label>
+
+                        <div class="course-radio-button">
+                            <input id="course-1" type="radio" name="course" value="1" checked>
+                            <label for="course-1">1</label>
+                        </div>
+                        
+                        <div class="course-radio-button">
+                            <input id="course-2" type="radio" name="course" value="2">
+                            <label for="course-2">2</label>
+                        </div>
+                        
+                        <div class="course-radio-button">
+                            <input id="course-3" type="radio" name="course" value="3">
+                            <label for="course-3">3</label>
+                        </div>
+                        
+                        <div class="course-radio-button">
+                            <input id="course-4" type="radio" name="course" value="4">
+                            <label for="course-4">4</label>
+                        </div>
+                        
+                        <div class="course-radio-button">
+                            <input id="course-5" type="radio" name="course" value="5">
+                            <label for="course-5">5</label>
+                        </div>
+                        
+                        <div class="course-radio-button">
+                            <input id="course-6" type="radio" name="course" value="6">
+                            <label for="course-6">6</label>
+                        </div>
+                    </div>
+                    <input type="checkbox" name="graduated" id="graduated"><label for="graduated">Уже окончил Вышку</label>
+                    <div class="form-group google-like-input">
+                        <input id="level" type="text" placeholder="">
+                        <label for="level">Ступень образования</label>
+                    </div>
+                    <div class="form-group google-like-input">
+                        <input id="faculty" type="text" placeholder="">
+                        <label for="faculty">Факультет</label>
+                    </div>
+                    <div class="form-group google-like-input">
+                        <input id="programme" type="text" placeholder="">
+                        <label for="programme">Образовательная программа</label>
+                    </div>
+                    <div class="form-group google-like-input">
+                        <input id="job" type="text" placeholder="">
+                        <label for="job">Работа</label>
+                    </div>
+                    <input type="submit" class="_hidden">OK</а>
+                </form>
+            </section>
+            <section id="registration-right-column">
+                <div>
+                    <span class="_text_size14 _text_color5D5B66">Так будет выглядеть твоя будущая страница</span>
+                    <div id="preview" class="_registration_rightblock _block_grayshadow">
+                        <div id="avatar">
+                            <div id="avatar-image"></div>
+                            <button id="show-contacts">Показать контакты</button>
+                        </div>
+                        <div id="info">
+                            <span id="name" class="_text_size18 _text_weight700"></span>
+                            <div id="maininfo" class="_text_size9">
+                                <span id="sex">Парень</span>
+                                <span class="divider">•</span>
+                                <span id="age"></span>
+                                <span class="divider">•</span>
+                                <span id="education"></span>
+                            </div>
+                            <div id="job" class="_text_size9"></div>
+                            <div id="description" class="_text_size9 _text_color5D5B66">
+                                <span id="text"></span>
+                            </div>
+                            <!-- госпидя -->
+                            <div style="margin-top: 20px; float:left; border-radius: 8px; background-color: #f4f4f6; width: 100%; height: 113px;">
+                                <div style="margin: 27px 12px 0px 12px; border-radius: 6px; background-color: #EEEEF1; width: 60%; height: 20px;"></div>
+                                <div style="margin: 2px 12px 0px 12px; border-radius: 6px; background-color: #EEEEF1; width: 90%; height: 14px;"></div>
+                                <div style="margin: 8px 12px 0px 12px; background-color: #CCCCCC; width: calc(100% - 24px); height: 1px;"></div>
+                                <div style="display: flex;">
+                                    <div style="margin: 11px 12px 0px 0px; border-radius: 6px; background-color: #EEEEF1; width: 30%; height: 16px;"></div>
+                                    <div style="margin: 11px 4px 0px 0px; border-radius: 6px; background-color: #EEEEF1; width: 50%; height: 16px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="alert-phase1" class="alert _registration_rightblock _block_grayshadow">
+                    <div>
+                        <div id="title" class="_text_size16 _text_weight700 _text_color000000">Мы совсем ничего про тебя не знаем</div>
+                        <div id="subtitle" class="_text_size14 _text_color5D5B66">Расскажи о себе.<br>Люди пишут тем, кому доверяют. Тем более при поиске соседа</div>
+                    </div>
+                    <span id="emoji" src="">🙁</span>
+                </div>
+                <div id="alert-phase2" class="alert _registration_rightblock _block_grayshadow _hidden">
+                    <div>
+                        <div id="title" class="_text_size16 _text_weight700 _text_color000000">Расскажи где ты учишься</div>
+                        <div id="subtitle" class="_text_size14 _text_color5D5B66">Часто студенты ищут соседей со схожими интересами</div>
+                    </div>
+                    <span id="emoji" src="">🙂</span>
+                </div>
+            </section>
+        </section>
+        <section id="registration-continue">
+            <button class="_btn_primary" id="continue">Продолжить</button>
+        </section>
+    </main>
+    <footer>
+        <div id="info">
+            <span id="email">Support@homeet.com</span><br>
+            <span id="email-subtitle">Техническая поддержка</span>
+        </div>
+        <div id="buttons">
+            <div id="leftbuttons">
+                <a href="https://example.com">О сервисе</a>
+                <a href="https://example.com">Контакты</a>
+                <a href="https://example.com">Политика конфиденциальности</a>
+            </div>
+            <div id="rightbuttons">
+                <a href="https://t.me/homeetHSE"><img src="{% static 'osennayashkolaapp/icons/tg.svg' %}"></a>
+                <a href="https://vk.com/ruhomeet"><img src="{% static 'osennayashkolaapp/icons/vk.svg' %}"></a>
+            </div>
+        </div>
+        <div id="line"></div>
+        <div id="grayinfo">
+            <span>Предложение не является публичной офертой.<br>Сервис не несёт ответственности за действия пользователей, достоверность информации и т.д.</span>
+            <span>Сделано в <span style="color: #5d5b66">бвср</span></span>
+        </div>
+    </footer>
+</body>
+</html>

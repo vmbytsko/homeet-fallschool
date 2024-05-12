@@ -1,0 +1,230 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Museo Sans Cyrl;
+}
+
+header {
+    z-index: 999;
+    display: flex;
+    top: 0;
+    position: fixed;
+    width: calc(100% - 80px);
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: white;
+    box-shadow: 0 5.85px 22.15px #855E980E,
+    0 5.85px 22.15px #855E980E,
+    0 2.87px 22.15px #855E980E,
+    0 1.13px 22.15px #855E980E;
+}
+
+footer {
+    padding: 0 max(7%, 200px) 0 max(7%, 200px);
+    width: calc(100% - max(14%, 400px));
+    @media only screen and (max-width: 1080px) {
+        padding: 0 40px 0 40px;
+        width: calc(100% - 80px);
+    };
+    /*padding: 0 200px 0 200px;
+    width: calc(100% - 400px);*/
+    z-index: 9999;
+    margin-top: 160px;
+    /*width: 100%;*/
+    border-top: 1px solid #EBEBEB;
+    border-bottom: 12px solid #7953C3;
+    background-color: white;
+    #info {
+        margin: 120px 0 0 0;
+    
+        @media only screen and (max-width: 750px) {
+            margin: 64px 0 0 0;
+        };
+
+        #email {
+            font-size: 40px;
+            color:#7953C3;
+            font-weight: 700;
+            @media only screen and (max-width: 750px) {
+                font-size: 28px;
+            }
+        };
+        #email-subtitle {
+            font-size: 16px;
+            color: #AAAAAA;
+            margin-top: 8px
+        }
+    };
+    #buttons {
+        margin: 40px 0 0 0;
+        /*margin: 40px 200px 0px 200px;*/
+        display: flex;
+        justify-content: space-between;
+
+        @media only screen and (max-width: 750px) {
+            flex-direction: column;
+        };
+
+        #leftbuttons {
+            & a {
+                text-decoration: none;
+                color: #040013;
+                font-size: 16px;
+                margin-right: 32px;
+
+                @media only screen and (max-width: 750px) {
+                    display: block;
+                    margin-right: 0;
+                    margin-bottom: 16px;
+                }
+            };
+        };
+        #rightbuttons {
+            & img {
+                margin-left: 8px;
+
+                @media only screen and (max-width: 750px) {
+                    margin-left: 0;
+                    margin-right: 8px;
+                    margin-top: 8px;
+                }
+            }
+        }
+    };
+    #line {
+        margin: 80px 0 0 0;
+        @media only screen and (max-width: 750px) {
+            margin: 40px 0 0 0;
+        };
+        width: 100%;
+        height: 1px;
+        background-color: #7953C320;
+    };
+    #grayinfo {
+        margin: 80px 0 64px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        
+        @media only screen and (max-width: 750px) {
+            margin: 40px 0 40px 0;
+            flex-direction: column;
+            align-items: normal;
+            gap: 40px;
+        };
+
+        & span {
+            font-size: 14px;
+            color: #AAAAAA;
+        };
+    }
+}
+
+/* Стили блоков */
+._block_grayshadow {
+    box-shadow: 0 5.85px 22.15px #855E980E,
+    0 5.85px 22.15px #855E980E,
+    0 2.87px 22.15px #855E980E,
+    0 1.13px 22.15px #855E980E;
+    border-radius: 32px;
+}
+._hidden {display: none !important;}
+
+/* Цвет текста */
+._text_colorCCCCCC {color: #CCCCCC;}
+._text_color5D5B66 {color: #5D5B66;}
+._text_color7953C3 {color: #7953C3;}
+._text_color9E9E9E {color: #9E9E9E;}
+._text_color000000 {color: #000000;}
+
+/* Жирность текста */
+._text_weight700 {font-weight: 700;}
+
+/* Кегль текста */
+._text_size9 {font-size: 9px;}
+._text_size12 {font-size: 12px;}
+._text_size14 {font-size: 14px;}
+._text_size16 {font-size: 16px;}
+._text_size18 {font-size: 18px;}
+
+/* Стили кнопок */
+button {
+    font-family: Museo Sans Cyrl !important;
+}
+
+._btn_main {
+    transition: 0.2s;
+    border-radius: 8px;
+    background-color: white;
+    border: 1px solid #7953C3;
+    padding: 8px 24px;
+    color: #7953C3;
+    line-height: 16px;
+    font-size: 14px;
+    height: 36px;
+}
+
+._btn_main:hover {
+    background-color: #ede9f7;
+
+}
+
+._btn_primary {
+    transition: 0.2s;
+    border-radius: 8px;
+    color: white;
+    border: 1px solid #7953C3;
+    padding: 8px 24px;
+    background-color: #7953C3;
+    line-height: 16px;
+    font-size: 14px;
+    height: 36px;
+    min-width: 142px;
+    font-weight: 700;
+}
+
+/* Стили main'а */
+main {
+    margin: 150px max(7%, 200px) 0 max(7%, 200px);
+    width: calc(100% - max(14%, 400px));
+    @media only screen and (max-width: 1080px) {
+        margin: 150px 40px 0 40px;
+        width: calc(100% - 80px);
+    };
+    #main-header {
+        margin-top: 16px;
+        font-weight: 700;
+        #title {
+            color: black;
+            font-size: 32px;
+            padding: 0 16px 0 0;
+        };
+        .subtitle {
+            color: #CCCCCC;
+            font-size: 16px;
+        };
+        .divider {
+            color: #CCCCCC;
+            font-size: 16px;
+            padding: 0 16px 0 0;
+        }
+    }
+}
+
+/* Шрифт */
+@font-face {
+    font-family: Museo Sans Cyrl;
+    src: url(../fonts/MuseoSansCyrl500.otf);
+    font-weight: 500;
+}
+@font-face {
+    font-family: Museo Sans Cyrl;
+    src: url(../fonts/MuseoSansCyrl700.otf);
+    font-weight: 700;
+}
+@font-face {
+    font-family: Museo Sans Cyrl;
+    src: url(../fonts/MuseoSansCyrl900.otf);
+    font-weight: 900;
+}
